@@ -107,11 +107,10 @@ bool chek(std::string* polindroms_k, std::string word, size_t k) {
 void replace(std::string& s, std::string* polindroms_notol, std::string del, size_t size_w, size_t k) {
     std::string word;
     size_t pos = 0, j = 0;
-    for (size_t i = 0; i < size_w; ++i) {
+    for (size_t i = 0; i < size_w && j < k; ++i) {
 
         pos = s.find_first_not_of(del, pos);
         word = s.substr(pos, s.find_first_of(del, pos) - pos);
-        tolover(word);
 
         if (chek(polindroms_notol, word, k)) {
             s.erase(pos, s.find_first_of(del, pos) - pos);
